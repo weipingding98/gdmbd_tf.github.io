@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Force:Granular Data Mining for Big Data</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/indexStyle.css">
+    <script type="application/javascript">
+
+        function mission() {
+            var url = "json/h3.json"
+            var r = new XMLHttpRequest();
+            r.open("get", url);
+            r.send(null);
+            r.onload = function () {
+                if (r.status == 200) {
+                    var json = JSON.parse(r.responseText);
+                    var diva = document.getElementsByClassName("cent_m")[0]
+                    diva.innerHTML = json.mtitle + json.mcent
+                }
+            }
+        }
+
+        function topics() {
+            var url = "json/h3.json"
+            var r = new XMLHttpRequest();
+            r.open("get", url);
+            r.send(null);
+            r.onload = function () {
+                if (r.status == 200) {
+                    var json = JSON.parse(r.responseText);
+                    var diva = document.getElementsByClassName("cent_m")[0]
+                    diva.innerHTML = json.ttitle + json.tcent
+                    //.cent_m自适应高度
+                    var dmh = document.getElementsByClassName("cent_m")[0];
+                    var dch = document.getElementsByClassName("nav_cent")[0];
+                    var mh = dmh.offsetHeight;
+                    var ch = dch.offsetHeight;
+                    if(ch - mh < 50){
+                        dch.style.height = mh + 70 + 'px';
+                    }
+                }
+            }
+
+        }
+    </script>
+    <style type="text/css">
+        body {
+            /*实现渐变色*/
+            background: -webkit-linear-gradient(top, skyblue, lightblue, white);
+        }
+    </style>
+</head>
+<body>
+<!--<div class="left_nav">-->
+<!--</div>-->
+<div class="nav">
+    <div class="nav_header">
+        <div class="nav_top"><p>Welcome to the Task Force:Granular Data Mining for Big Data!</p></div>
+        <div class="nav_header_h">
+            <img src="image/cis.png">
+            <div class="header_wel"><p>Task Force:</p></div>
+            <div class="header_tit"><p>Granular Data Mining for Big Data</p></div>
+            <div class="header_i"><img src="image/ieee-mb-bk.png"/></div>
+        </div>
+        <div class="nav_header_d">
+            <ul>
+                <li class="nav_header_li">
+                    <a href="index.html">Organization</a>
+                </li>
+                <li class="nav_header_li">
+                    <a href="lta.html">List of Technical Activities</a>
+                </li>
+                <li class="nav_header_li">
+                    <a href="tam.html">Target and Motivation</a>
+                </li>
+                <li class="nav_header_liactive">
+                    <a style="color: #1E90FF" href="mat.html">Mission and Topics</a>
+                </li>
+                <li class="nav_header_li">
+                    <a href="tfc.html">Task Force Committee</a>
+                </li>
+                <li class="nav_header_li">
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="nav_cent">
+        <div class="cent_d">
+            <ul class="cent_dul">
+                Welcome to our task force,you can click the button below:
+                <li><a href="javascript:void(0);" onclick="mission()">Mission</a></li>
+                <li><a href="javascript:void(0);" onclick="topics()">Topics</a></li>
+            </ul>
+        </div>
+        <div class="cent_m">
+            <h1>Mission</h1>
+            <p>Granular data mining in big data analysis is an emerging field which crosses multiple research
+                disciplines and industry domains. A vast number of real-world problems can be tackled using techniques
+                encompassed in GrC. Granular data mining research explores the advantages, and also challenges, derived
+                from collecting and mining vast amounts of real-world big data. The aims of this task force are: (1) to
+                present the state-of-the-art research on granular data mining and its application in big data, and (2)
+                to provide a forum for researchers to discuss the latest progress, new research methodologies, and
+                potential research topics.</p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
